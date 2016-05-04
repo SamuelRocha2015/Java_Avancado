@@ -21,7 +21,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "filme")
+@Table(name = "tbl_filme")
 public class Filme implements Serializable {
     private static final long serialVersionUID = 1L;
 
