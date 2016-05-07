@@ -5,10 +5,17 @@
     <h:head>
         <title>Locadora Virtual | Categorias</title>
     </h:head>
+    <h1>Nova Categoria</h1> 
     <h:body>
         <h:form>
-            Categoria: <h:inputText value="#categoriaBean.categoria.categoria"/>
-            
+            <fieldset>
+                <legend>Cadastro</legend>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Categoria:" for="categoria"/>
+                    <h:inputText id="categoria" value="#{categoriaMB.categoria.nome}"/>
+                    <h:commandButton value="Gravar" action="#{categoriaMB.salvar}"/>
+                </h:panelGrid>
+            </fieldset>
         </h:form>
     </h:body>
 </html>

@@ -6,9 +6,8 @@
 package br.com.codeshouse.locadora.teste;
 
 import br.com.codeshouse.locadora.modelo.Categoria;
+import br.com.codeshouse.locadora.util.JPAUtil;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 /**
  *
@@ -17,11 +16,11 @@ import javax.persistence.Persistence;
 public class Testa {
 
     public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("LocadoraPU");
-        EntityManager em = factory.createEntityManager();
+        
+        EntityManager em = JPAUtil.getEntityManager();
 
         Categoria c = new Categoria();
-        c.setCategoria("suspense");
+        c.setNome("suspense");
 
         em.getTransaction().begin();
         em.persist(c);
