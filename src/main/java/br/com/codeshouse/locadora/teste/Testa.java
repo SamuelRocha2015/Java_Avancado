@@ -7,7 +7,9 @@ package br.com.codeshouse.locadora.teste;
 
 import br.com.codeshouse.locadora.modelo.Categoria;
 import br.com.codeshouse.locadora.util.JPAUtil;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 /**
  *
@@ -16,16 +18,22 @@ import javax.persistence.EntityManager;
 public class Testa {
 
     public static void main(String[] args) {
-        
+
         EntityManager em = JPAUtil.getEntityManager();
-
-        Categoria c = new Categoria();
-        c.setNome("suspense");
-
         em.getTransaction().begin();
-        em.persist(c);
+        
+        Query q = em.createQuery("select c from Categoria c", Categoria.class);
+        Query q2 = em.createNativeQuery("select * from tbl_categoria");
+        List<Categoria> lista = q.getResultList();
+        
         em.getTransaction().commit();
         em.close();
+        
+        
+        System.err.println("=====================================================");
+        for (Categoria categoria : lista) {
+            System.out.println("categoria : " + categoria.getNome());
+        }
     }
 
 }

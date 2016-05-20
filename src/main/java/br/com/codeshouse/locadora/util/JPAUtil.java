@@ -13,13 +13,13 @@ import javax.persistence.Persistence;
  *
  * @author samuel.rocha
  */
-public class JPAUtil {
+    public class JPAUtil {
 
-    private static final EntityManagerFactory emf 
-            = Persistence.createEntityManagerFactory("LocadoraPU");
+        private static final EntityManagerFactory emf 
+                = Persistence.createEntityManagerFactory("LocadoraPU");
 
-    public static EntityManager getEntityManager() {
-        return emf.createEntityManager();
+        public static EntityManager getEntityManager() {
+            return emf.createEntityManager();
+        }
+
     }
-
-}
