@@ -23,7 +23,6 @@ public class Testa {
         em.getTransaction().begin();
         
         Query q = em.createQuery("select c from Categoria c", Categoria.class);
-        Query q2 = em.createNativeQuery("select * from tbl_categoria");
         List<Categoria> lista = q.getResultList();
         
         em.getTransaction().commit();
